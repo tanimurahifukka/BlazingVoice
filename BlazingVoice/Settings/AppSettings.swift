@@ -34,6 +34,8 @@ final class AppSettings: ObservableObject {
     @AppStorage("hayabusaTimeout") var hayabusaTimeout: Double = 120
 
     @AppStorage("customPrompt") var customPrompt: String = ""
+    @AppStorage("llmMaxOutputTokens") var llmMaxOutputTokens: Int = 512
+    @AppStorage("llmTemperature") var llmTemperature: Double = 0.1
 
     var effectivePrompt: String {
         customPrompt.isEmpty ? PromptTemplate.defaultSOAPPrompt : customPrompt

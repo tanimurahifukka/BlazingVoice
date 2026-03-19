@@ -32,7 +32,7 @@ enum PromptTemplate {
     static func buildMessages(systemPrompt: String, userInput: String) -> [[String: String]] {
         [
             ["role": "system", "content": systemPrompt],
-            ["role": "user", "content": "以下の診察内容をSOAP形式に整形してください：\n\n\(userInput)"]
+            ["role": "user", "content": "SOAP化対象:\n\(userInput)"]
         ]
     }
 }

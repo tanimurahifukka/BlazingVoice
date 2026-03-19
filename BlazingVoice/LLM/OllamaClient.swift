@@ -2,6 +2,7 @@ import Foundation
 
 final class OllamaClient: LLMClient {
     private let settings: AppSettings
+    private let session: URLSession
 
     enum OllamaError: LocalizedError {
         case invalidURL
@@ -23,6 +24,11 @@ final class OllamaClient: LLMClient {
 
     init(settings: AppSettings) {
         self.settings = settings
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = settings.ollamaTimeout
+        config.timeoutIntervalForResource = settings.ollamaTimeout
+        config.waitsForConnectivity = false
+        self.session = URLSession(configuration: config)
     }
 
     // MARK: - SOAP Generation
@@ -42,7 +48,7 @@ final class OllamaClient: LLMClient {
             "model": settings.ollamaModel,
             "messages": messages,
             "stream": false,
-            "options": ["num_predict": 2048],
+            "options": ["num_predict": settings.llmMaxOutputTokens],
             "think": false
         ]
 
@@ -56,7 +62,7 @@ final class OllamaClient: LLMClient {
 
         let (data, response): (Data, URLResponse)
         do {
-            (data, response) = try await URLSession.shared.data(for: request)
+            (data, response) = try await session.data(for: request)
         } catch {
             throw OllamaError.connectionFailed(error.localizedDescription)
         }
@@ -96,7 +102,7 @@ final class OllamaClient: LLMClient {
 
         let (data, response): (Data, URLResponse)
         do {
-            (data, response) = try await URLSession.shared.data(for: request)
+            (data, response) = try await session.data(for: request)
         } catch {
             throw OllamaError.connectionFailed(error.localizedDescription)
         }
@@ -123,10 +129,37 @@ final class OllamaClient: LLMClient {
         request.timeoutInterval = 5
 
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await session.data(for: request)
             return (response as? HTTPURLResponse)?.statusCode == 200
         } catch {
             return false
         }
+    }
+
+    func warmUp() async {
+        let endpoint = settings.ollamaEndpoint.trimmingCharacters(in: .whitespaces)
+        guard let url = URL(string: "\(endpoint)/api/chat") else { return }
+
+        let body: [String: Any] = [
+            "model": settings.ollamaModel,
+            "messages": [
+                ["role": "system", "content": "短く返答してください。"],
+                ["role": "user", "content": "ok"]
+            ],
+            "stream": false,
+            "options": ["num_predict": 8],
+            "think": false,
+            "keep_alive": "10m"
+        ]
+
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: body) else { return }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        request.timeoutInterval = min(settings.ollamaTimeout, 15)
+
+        _ = try? await session.data(for: request)
     }
 }

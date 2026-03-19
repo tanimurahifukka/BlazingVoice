@@ -5,6 +5,7 @@ protocol LLMClient {
     func generateSOAP(from text: String) async throws -> String
     func fetchModels() async throws -> [String]
     func checkConnection() async -> Bool
+    func warmUp() async
 }
 
 enum LLMBackend: String, CaseIterable, Identifiable {

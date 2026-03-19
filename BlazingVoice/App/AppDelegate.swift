@@ -33,6 +33,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
 
         AVCaptureDevice.requestAccess(for: .audio) { _ in }
         SFSpeechRecognizer.requestAuthorization { _ in }
+        warmUpCurrentLLM()
 
         if !settings.setupCompleted {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -45,6 +46,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     func refreshLLMClient() {
         llmClient = settings.createLLMClient()
         print("[BlazingVoice] switched to \(settings.llmBackend.displayName)")
+        warmUpCurrentLLM()
     }
 
     func openSetupWizard() {
@@ -94,7 +96,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
 
     private func processRecognizedText(_ rawText: String) {
-        print("[BlazingVoice] processRecognizedText: \(rawText)")
+        print("[BlazingVoice] processRecognizedText (\(rawText.count) chars)")
         guard !rawText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             handleError("音声が認識されませんでした")
             return
@@ -104,7 +106,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         statusBarController.updateState(.processing)
 
         let correctedText = userDictionary.applyReplacements(to: rawText)
-        print("[BlazingVoice] sending to \(settings.llmBackend.displayName): \(correctedText)")
+        print("[BlazingVoice] sending \(correctedText.count) chars to \(settings.llmBackend.displayName)")
 
         Task {
             do {
@@ -154,6 +156,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                 self?.pipelineState = .idle
                 self?.statusBarController.updateState(.idle)
             }
+        }
+    }
+
+    private func warmUpCurrentLLM() {
+        let client = llmClient
+        Task.detached(priority: .background) {
+            await client?.warmUp()
         }
     }
 }
