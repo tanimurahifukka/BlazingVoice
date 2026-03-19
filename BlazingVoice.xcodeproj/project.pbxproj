@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0978C88CD0DD7A61973FC180 /* DictionarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DCDF9351C3550F5B96DFEB /* DictionarySettingsView.swift */; };
+		0F01C62B0114652F2AFB5B5D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE73AB857AFB78A616372159 /* AppSettings.swift */; };
+		199FCAD2A7F39211DC05B340 /* DictionaryPreset.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6328E2C287C150BBA1C6D473 /* DictionaryPreset.csv */; };
+		336C416D7C13E3C5716462FD /* PromptTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94B662088C5D50D82A62FA /* PromptTemplate.swift */; };
+		455859B6760803E8C98E6EE5 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC5EE6938F990525515B01 /* GeneralSettingsView.swift */; };
+		485B1DB3DEEC0F9549B7E170 /* DictionaryPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7723ADFFDED43E8EA1F8BE /* DictionaryPreset.swift */; };
+		58FC03B04ECF1A755E7A2B29 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931F9904B54532A6B28C5982 /* HotkeyManager.swift */; };
+		6F1445C00419EC250A6FDD5F /* UserDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5AC7C748A90041AFF67BC1 /* UserDictionary.swift */; };
+		811DF2EAADE7C7418C3B8B65 /* LLMSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38932C48F6A726427C242 /* LLMSettingsView.swift */; };
+		8AACCD56AFC8225ABF401DB1 /* SessionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA756C6DB59C5D22B6759B /* SessionHistory.swift */; };
+		90B5297F0E7453F93A4507EF /* OllamaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50568CFE8A2549458BD9E332 /* OllamaClient.swift */; };
+		A1B2C3D4E5F60718191A1B1C /* HayabusaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718191A1B1D /* HayabusaClient.swift */; };
+		A1B2C3D4E5F60718191A1B2C /* LLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718191A1B2D /* LLMClient.swift */; };
+		9B03885EBC5D55BBBAFBD958 /* TextInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470EE5F3B317EC7B3126864C /* TextInjector.swift */; };
+		A6DF2778A52231805F4405E5 /* StorageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DE764816420E5A18309CC7 /* StorageSettingsView.swift */; };
+		C2D5C848FF27F4A77D083F77 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98534B6FF31D0B34DD97A2 /* StatusBarMenu.swift */; };
+		D48629FDE4D333080500C245 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8451F364DB849CFE7AE176 /* StatusBarController.swift */; };
+		E3F871DE601F6F32D6C2EDD4 /* SetupWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA375846AB6E080AEAA99E /* SetupWizardView.swift */; };
+		E9E30A75B5464B43370E2C33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501E788BD8D4DDDC82D2B6A /* AppDelegate.swift */; };
+		EAA3EDBC07935D873FEA9458 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DE815B5C160E28D428DE7F /* SpeechRecognizer.swift */; };
+		F939146E0E84FDC6DF20991C /* BlazingVoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101DDF71F81113DEC853EDB6 /* BlazingVoiceApp.swift */; };
+		FE61488BE249807501134803 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F5949C8AA5ECC735FCBE0D /* SettingsView.swift */; };
+		B3A7F1E2D4C8091A5E6F3B70 /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7F1E2D4C8091A5E6F3B71 /* OverlayPanel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02DCDF9351C3550F5B96DFEB /* DictionarySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionarySettingsView.swift; sourceTree = "<group>"; };
+		101DDF71F81113DEC853EDB6 /* BlazingVoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlazingVoiceApp.swift; sourceTree = "<group>"; };
+		28F5949C8AA5ECC735FCBE0D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3A94B662088C5D50D82A62FA /* PromptTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptTemplate.swift; sourceTree = "<group>"; };
+		4501E788BD8D4DDDC82D2B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		470EE5F3B317EC7B3126864C /* TextInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInjector.swift; sourceTree = "<group>"; };
+		50568CFE8A2549458BD9E332 /* OllamaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaClient.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718191A1B1D /* HayabusaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HayabusaClient.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718191A1B2D /* LLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClient.swift; sourceTree = "<group>"; };
+		6328E2C287C150BBA1C6D473 /* DictionaryPreset.csv */ = {isa = PBXFileReference; path = DictionaryPreset.csv; sourceTree = "<group>"; };
+		6F98534B6FF31D0B34DD97A2 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
+		84FA756C6DB59C5D22B6759B /* SessionHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistory.swift; sourceTree = "<group>"; };
+		931F9904B54532A6B28C5982 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		97DE764816420E5A18309CC7 /* StorageSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSettingsView.swift; sourceTree = "<group>"; };
+		A54466BDCFD1C29C7B549B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AEB368A1471F243C2D1E0188 /* BlazingVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlazingVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1AC5EE6938F990525515B01 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		BE8451F364DB849CFE7AE176 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		C7DA375846AB6E080AEAA99E /* SetupWizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWizardView.swift; sourceTree = "<group>"; };
+		CA7723ADFFDED43E8EA1F8BE /* DictionaryPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPreset.swift; sourceTree = "<group>"; };
+		CFA38932C48F6A726427C242 /* LLMSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMSettingsView.swift; sourceTree = "<group>"; };
+		EE73AB857AFB78A616372159 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		F5DE815B5C160E28D428DE7F /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		FD5AC7C748A90041AFF67BC1 /* UserDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDictionary.swift; sourceTree = "<group>"; };
+		B3A7F1E2D4C8091A5E6F3B71 /* OverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPanel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		069E09000EE4558D852F6309 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4501E788BD8D4DDDC82D2B6A /* AppDelegate.swift */,
+				101DDF71F81113DEC853EDB6 /* BlazingVoiceApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		101E6152A2132E8C03AFC735 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6328E2C287C150BBA1C6D473 /* DictionaryPreset.csv */,
+				A54466BDCFD1C29C7B549B4D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1D1F785717239FA3F84AF476 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				470EE5F3B317EC7B3126864C /* TextInjector.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		2DB7BF71B793145B20C1280F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EE73AB857AFB78A616372159 /* AppSettings.swift */,
+				02DCDF9351C3550F5B96DFEB /* DictionarySettingsView.swift */,
+				B1AC5EE6938F990525515B01 /* GeneralSettingsView.swift */,
+				CFA38932C48F6A726427C242 /* LLMSettingsView.swift */,
+				28F5949C8AA5ECC735FCBE0D /* SettingsView.swift */,
+				97DE764816420E5A18309CC7 /* StorageSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3BFE63074EC29F8B26583083 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				BE8451F364DB849CFE7AE176 /* StatusBarController.swift */,
+				6F98534B6FF31D0B34DD97A2 /* StatusBarMenu.swift */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
+		676FEF348A8F103EFF6CB344 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				F5DE815B5C160E28D428DE7F /* SpeechRecognizer.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		6847E47586532F70BD303D16 /* Wizard */ = {
+			isa = PBXGroup;
+			children = (
+				C7DA375846AB6E080AEAA99E /* SetupWizardView.swift */,
+			);
+			path = Wizard;
+			sourceTree = "<group>";
+		};
+		69DB2DEE4165EBCD1B3D2052 /* LLM */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F60718191A1B1D /* HayabusaClient.swift */,
+				A1B2C3D4E5F60718191A1B2D /* LLMClient.swift */,
+				50568CFE8A2549458BD9E332 /* OllamaClient.swift */,
+				3A94B662088C5D50D82A62FA /* PromptTemplate.swift */,
+			);
+			path = LLM;
+			sourceTree = "<group>";
+		};
+		73A8A31A098C60B60C03427C = {
+			isa = PBXGroup;
+			children = (
+				AA3E5639C883C28C7B126FBA /* BlazingVoice */,
+				F8A692C918BB22D663909E5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8ED835E987A4B0F18D98F457 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				84FA756C6DB59C5D22B6759B /* SessionHistory.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		B3A7F1E2D4C8091A5E6F3B72 /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				B3A7F1E2D4C8091A5E6F3B71 /* OverlayPanel.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
+		AA3E5639C883C28C7B126FBA /* BlazingVoice */ = {
+			isa = PBXGroup;
+			children = (
+				069E09000EE4558D852F6309 /* App */,
+				676FEF348A8F103EFF6CB344 /* Audio */,
+				B1B925340E39697AB642763F /* Dictionary */,
+				8ED835E987A4B0F18D98F457 /* History */,
+				B1D6EE5046C86CB553E8ECF1 /* HotKey */,
+				1D1F785717239FA3F84AF476 /* Injection */,
+				69DB2DEE4165EBCD1B3D2052 /* LLM */,
+				B3A7F1E2D4C8091A5E6F3B72 /* Overlay */,
+				101E6152A2132E8C03AFC735 /* Resources */,
+				2DB7BF71B793145B20C1280F /* Settings */,
+				3BFE63074EC29F8B26583083 /* StatusBar */,
+				6847E47586532F70BD303D16 /* Wizard */,
+			);
+			path = BlazingVoice;
+			sourceTree = "<group>";
+		};
+		B1B925340E39697AB642763F /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				CA7723ADFFDED43E8EA1F8BE /* DictionaryPreset.swift */,
+				FD5AC7C748A90041AFF67BC1 /* UserDictionary.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		B1D6EE5046C86CB553E8ECF1 /* HotKey */ = {
+			isa = PBXGroup;
+			children = (
+				931F9904B54532A6B28C5982 /* HotkeyManager.swift */,
+			);
+			path = HotKey;
+			sourceTree = "<group>";
+		};
+		F8A692C918BB22D663909E5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEB368A1471F243C2D1E0188 /* BlazingVoice.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF11057E8FBD5BB3ABD62E3A /* BlazingVoice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8E4356D5FBEFA1B1E30C6F9 /* Build configuration list for PBXNativeTarget "BlazingVoice" */;
+			buildPhases = (
+				F5B581F8251D40D04982CD42 /* Sources */,
+				7D60C8BE5C25A84A18D4C807 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlazingVoice;
+			packageProductDependencies = (
+			);
+			productName = BlazingVoice;
+			productReference = AEB368A1471F243C2D1E0188 /* BlazingVoice.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		029F89AE09B15045F3AFDE61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					CF11057E8FBD5BB3ABD62E3A = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 69E03B5FA173C93F160B4710 /* Build configuration list for PBXProject "BlazingVoice" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 73A8A31A098C60B60C03427C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF11057E8FBD5BB3ABD62E3A /* BlazingVoice */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D60C8BE5C25A84A18D4C807 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				199FCAD2A7F39211DC05B340 /* DictionaryPreset.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5B581F8251D40D04982CD42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9E30A75B5464B43370E2C33 /* AppDelegate.swift in Sources */,
+				0F01C62B0114652F2AFB5B5D /* AppSettings.swift in Sources */,
+				F939146E0E84FDC6DF20991C /* BlazingVoiceApp.swift in Sources */,
+				485B1DB3DEEC0F9549B7E170 /* DictionaryPreset.swift in Sources */,
+				0978C88CD0DD7A61973FC180 /* DictionarySettingsView.swift in Sources */,
+				455859B6760803E8C98E6EE5 /* GeneralSettingsView.swift in Sources */,
+				58FC03B04ECF1A755E7A2B29 /* HotkeyManager.swift in Sources */,
+				811DF2EAADE7C7418C3B8B65 /* LLMSettingsView.swift in Sources */,
+				A1B2C3D4E5F60718191A1B1C /* HayabusaClient.swift in Sources */,
+				A1B2C3D4E5F60718191A1B2C /* LLMClient.swift in Sources */,
+				90B5297F0E7453F93A4507EF /* OllamaClient.swift in Sources */,
+				336C416D7C13E3C5716462FD /* PromptTemplate.swift in Sources */,
+				8AACCD56AFC8225ABF401DB1 /* SessionHistory.swift in Sources */,
+				FE61488BE249807501134803 /* SettingsView.swift in Sources */,
+				E3F871DE601F6F32D6C2EDD4 /* SetupWizardView.swift in Sources */,
+				EAA3EDBC07935D873FEA9458 /* SpeechRecognizer.swift in Sources */,
+				D48629FDE4D333080500C245 /* StatusBarController.swift in Sources */,
+				C2D5C848FF27F4A77D083F77 /* StatusBarMenu.swift in Sources */,
+				B3A7F1E2D4C8091A5E6F3B70 /* OverlayPanel.swift in Sources */,
+				A6DF2778A52231805F4405E5 /* StorageSettingsView.swift in Sources */,
+				9B03885EBC5D55BBBAFBD958 /* TextInjector.swift in Sources */,
+				6F1445C00419EC250A6FDD5F /* UserDictionary.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3FC001F474111C0F8332CC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BlazingVoice/Resources/BlazingVoice.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BlazingVoice/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DD6B5839D47C67D02DBCBD1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blazingvoice.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		E945D1768E894464CBC34B63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blazingvoice.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		FDD5E5FD395FA183A89F7511 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BlazingVoice/Resources/BlazingVoice.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BlazingVoice/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69E03B5FA173C93F160B4710 /* Build configuration list for PBXProject "BlazingVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD6B5839D47C67D02DBCBD1F /* Debug */,
+				E945D1768E894464CBC34B63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F8E4356D5FBEFA1B1E30C6F9 /* Build configuration list for PBXNativeTarget "BlazingVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FC001F474111C0F8332CC5C /* Debug */,
+				FDD5E5FD395FA183A89F7511 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 029F89AE09B15045F3AFDE61 /* Project object */;
+}
