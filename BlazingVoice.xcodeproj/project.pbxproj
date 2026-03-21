@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		0978C88CD0DD7A61973FC180 /* DictionarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DCDF9351C3550F5B96DFEB /* DictionarySettingsView.swift */; };
 		0F01C62B0114652F2AFB5B5D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE73AB857AFB78A616372159 /* AppSettings.swift */; };
+		102C964FB4F7B9F8237CE48D /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD053E808A8B69A5FB14E5C /* OverlayPanel.swift */; };
+		13208641433F50FC0D377E25 /* HayabusaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D839D0CADF88084FEA81F4 /* HayabusaClient.swift */; };
 		199FCAD2A7F39211DC05B340 /* DictionaryPreset.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6328E2C287C150BBA1C6D473 /* DictionaryPreset.csv */; };
+		2584294B0CB09FAA906E66D4 /* EvolutionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C70ED09014BCCC0259CE811 /* EvolutionSettingsView.swift */; };
 		336C416D7C13E3C5716462FD /* PromptTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94B662088C5D50D82A62FA /* PromptTemplate.swift */; };
 		455859B6760803E8C98E6EE5 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC5EE6938F990525515B01 /* GeneralSettingsView.swift */; };
 		485B1DB3DEEC0F9549B7E170 /* DictionaryPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7723ADFFDED43E8EA1F8BE /* DictionaryPreset.swift */; };
@@ -18,18 +21,18 @@
 		811DF2EAADE7C7418C3B8B65 /* LLMSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA38932C48F6A726427C242 /* LLMSettingsView.swift */; };
 		8AACCD56AFC8225ABF401DB1 /* SessionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA756C6DB59C5D22B6759B /* SessionHistory.swift */; };
 		90B5297F0E7453F93A4507EF /* OllamaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50568CFE8A2549458BD9E332 /* OllamaClient.swift */; };
-		A1B2C3D4E5F60718191A1B1C /* HayabusaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718191A1B1D /* HayabusaClient.swift */; };
-		A1B2C3D4E5F60718191A1B2C /* LLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718191A1B2D /* LLMClient.swift */; };
 		9B03885EBC5D55BBBAFBD958 /* TextInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470EE5F3B317EC7B3126864C /* TextInjector.swift */; };
 		A6DF2778A52231805F4405E5 /* StorageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DE764816420E5A18309CC7 /* StorageSettingsView.swift */; };
+		A89ACB4F69C3B6F5E6365653 /* PromptEvolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD97E78403C53F9E1A0B68C6 /* PromptEvolver.swift */; };
 		C2D5C848FF27F4A77D083F77 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98534B6FF31D0B34DD97A2 /* StatusBarMenu.swift */; };
+		CCF61E9E4F6B2B6FAD9D9E14 /* EvolutionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE85D6B0CE45AC308BE7A1 /* EvolutionLog.swift */; };
 		D48629FDE4D333080500C245 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8451F364DB849CFE7AE176 /* StatusBarController.swift */; };
 		E3F871DE601F6F32D6C2EDD4 /* SetupWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA375846AB6E080AEAA99E /* SetupWizardView.swift */; };
+		E505B19E5E767884DA7DC547 /* LLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC223B925E602E90066F364 /* LLMClient.swift */; };
 		E9E30A75B5464B43370E2C33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501E788BD8D4DDDC82D2B6A /* AppDelegate.swift */; };
 		EAA3EDBC07935D873FEA9458 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DE815B5C160E28D428DE7F /* SpeechRecognizer.swift */; };
 		F939146E0E84FDC6DF20991C /* BlazingVoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101DDF71F81113DEC853EDB6 /* BlazingVoiceApp.swift */; };
 		FE61488BE249807501134803 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F5949C8AA5ECC735FCBE0D /* SettingsView.swift */; };
-		B3A7F1E2D4C8091A5E6F3B70 /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7F1E2D4C8091A5E6F3B71 /* OverlayPanel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +43,12 @@
 		4501E788BD8D4DDDC82D2B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		470EE5F3B317EC7B3126864C /* TextInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInjector.swift; sourceTree = "<group>"; };
 		50568CFE8A2549458BD9E332 /* OllamaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaClient.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F60718191A1B1D /* HayabusaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HayabusaClient.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F60718191A1B2D /* LLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClient.swift; sourceTree = "<group>"; };
 		6328E2C287C150BBA1C6D473 /* DictionaryPreset.csv */ = {isa = PBXFileReference; path = DictionaryPreset.csv; sourceTree = "<group>"; };
+		6C70ED09014BCCC0259CE811 /* EvolutionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionSettingsView.swift; sourceTree = "<group>"; };
 		6F98534B6FF31D0B34DD97A2 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
+		78D839D0CADF88084FEA81F4 /* HayabusaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HayabusaClient.swift; sourceTree = "<group>"; };
 		84FA756C6DB59C5D22B6759B /* SessionHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistory.swift; sourceTree = "<group>"; };
+		8EC223B925E602E90066F364 /* LLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClient.swift; sourceTree = "<group>"; };
 		931F9904B54532A6B28C5982 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		97DE764816420E5A18309CC7 /* StorageSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSettingsView.swift; sourceTree = "<group>"; };
 		A54466BDCFD1C29C7B549B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -54,10 +58,12 @@
 		C7DA375846AB6E080AEAA99E /* SetupWizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWizardView.swift; sourceTree = "<group>"; };
 		CA7723ADFFDED43E8EA1F8BE /* DictionaryPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPreset.swift; sourceTree = "<group>"; };
 		CFA38932C48F6A726427C242 /* LLMSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMSettingsView.swift; sourceTree = "<group>"; };
+		DDD053E808A8B69A5FB14E5C /* OverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPanel.swift; sourceTree = "<group>"; };
+		E4AE85D6B0CE45AC308BE7A1 /* EvolutionLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionLog.swift; sourceTree = "<group>"; };
 		EE73AB857AFB78A616372159 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		F5DE815B5C160E28D428DE7F /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		FD5AC7C748A90041AFF67BC1 /* UserDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDictionary.swift; sourceTree = "<group>"; };
-		B3A7F1E2D4C8091A5E6F3B71 /* OverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPanel.swift; sourceTree = "<group>"; };
+		FD97E78403C53F9E1A0B68C6 /* PromptEvolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptEvolver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -92,6 +98,7 @@
 			children = (
 				EE73AB857AFB78A616372159 /* AppSettings.swift */,
 				02DCDF9351C3550F5B96DFEB /* DictionarySettingsView.swift */,
+				6C70ED09014BCCC0259CE811 /* EvolutionSettingsView.swift */,
 				B1AC5EE6938F990525515B01 /* GeneralSettingsView.swift */,
 				CFA38932C48F6A726427C242 /* LLMSettingsView.swift */,
 				28F5949C8AA5ECC735FCBE0D /* SettingsView.swift */,
@@ -128,8 +135,8 @@
 		69DB2DEE4165EBCD1B3D2052 /* LLM */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F60718191A1B1D /* HayabusaClient.swift */,
-				A1B2C3D4E5F60718191A1B2D /* LLMClient.swift */,
+				78D839D0CADF88084FEA81F4 /* HayabusaClient.swift */,
+				8EC223B925E602E90066F364 /* LLMClient.swift */,
 				50568CFE8A2549458BD9E332 /* OllamaClient.swift */,
 				3A94B662088C5D50D82A62FA /* PromptTemplate.swift */,
 			);
@@ -152,12 +159,13 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		B3A7F1E2D4C8091A5E6F3B72 /* Overlay */ = {
+		A12A21EDBC5E3C755929D2B7 /* Evolution */ = {
 			isa = PBXGroup;
 			children = (
-				B3A7F1E2D4C8091A5E6F3B71 /* OverlayPanel.swift */,
+				E4AE85D6B0CE45AC308BE7A1 /* EvolutionLog.swift */,
+				FD97E78403C53F9E1A0B68C6 /* PromptEvolver.swift */,
 			);
-			path = Overlay;
+			path = Evolution;
 			sourceTree = "<group>";
 		};
 		AA3E5639C883C28C7B126FBA /* BlazingVoice */ = {
@@ -166,11 +174,12 @@
 				069E09000EE4558D852F6309 /* App */,
 				676FEF348A8F103EFF6CB344 /* Audio */,
 				B1B925340E39697AB642763F /* Dictionary */,
+				A12A21EDBC5E3C755929D2B7 /* Evolution */,
 				8ED835E987A4B0F18D98F457 /* History */,
 				B1D6EE5046C86CB553E8ECF1 /* HotKey */,
 				1D1F785717239FA3F84AF476 /* Injection */,
 				69DB2DEE4165EBCD1B3D2052 /* LLM */,
-				B3A7F1E2D4C8091A5E6F3B72 /* Overlay */,
+				CF4319D0DD21CD6621C10D31 /* Overlay */,
 				101E6152A2132E8C03AFC735 /* Resources */,
 				2DB7BF71B793145B20C1280F /* Settings */,
 				3BFE63074EC29F8B26583083 /* StatusBar */,
@@ -194,6 +203,14 @@
 				931F9904B54532A6B28C5982 /* HotkeyManager.swift */,
 			);
 			path = HotKey;
+			sourceTree = "<group>";
+		};
+		CF4319D0DD21CD6621C10D31 /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				DDD053E808A8B69A5FB14E5C /* OverlayPanel.swift */,
+			);
+			path = Overlay;
 			sourceTree = "<group>";
 		};
 		F8A692C918BB22D663909E5A /* Products */ = {
@@ -240,7 +257,6 @@
 				};
 			};
 			buildConfigurationList = 69E03B5FA173C93F160B4710 /* Build configuration list for PBXProject "BlazingVoice" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -250,6 +266,7 @@
 			mainGroup = 73A8A31A098C60B60C03427C;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
+			productRefGroup = F8A692C918BB22D663909E5A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -279,12 +296,16 @@
 				F939146E0E84FDC6DF20991C /* BlazingVoiceApp.swift in Sources */,
 				485B1DB3DEEC0F9549B7E170 /* DictionaryPreset.swift in Sources */,
 				0978C88CD0DD7A61973FC180 /* DictionarySettingsView.swift in Sources */,
+				CCF61E9E4F6B2B6FAD9D9E14 /* EvolutionLog.swift in Sources */,
+				2584294B0CB09FAA906E66D4 /* EvolutionSettingsView.swift in Sources */,
 				455859B6760803E8C98E6EE5 /* GeneralSettingsView.swift in Sources */,
+				13208641433F50FC0D377E25 /* HayabusaClient.swift in Sources */,
 				58FC03B04ECF1A755E7A2B29 /* HotkeyManager.swift in Sources */,
+				E505B19E5E767884DA7DC547 /* LLMClient.swift in Sources */,
 				811DF2EAADE7C7418C3B8B65 /* LLMSettingsView.swift in Sources */,
-				A1B2C3D4E5F60718191A1B1C /* HayabusaClient.swift in Sources */,
-				A1B2C3D4E5F60718191A1B2C /* LLMClient.swift in Sources */,
 				90B5297F0E7453F93A4507EF /* OllamaClient.swift in Sources */,
+				102C964FB4F7B9F8237CE48D /* OverlayPanel.swift in Sources */,
+				A89ACB4F69C3B6F5E6365653 /* PromptEvolver.swift in Sources */,
 				336C416D7C13E3C5716462FD /* PromptTemplate.swift in Sources */,
 				8AACCD56AFC8225ABF401DB1 /* SessionHistory.swift in Sources */,
 				FE61488BE249807501134803 /* SettingsView.swift in Sources */,
@@ -292,7 +313,6 @@
 				EAA3EDBC07935D873FEA9458 /* SpeechRecognizer.swift in Sources */,
 				D48629FDE4D333080500C245 /* StatusBarController.swift in Sources */,
 				C2D5C848FF27F4A77D083F77 /* StatusBarMenu.swift in Sources */,
-				B3A7F1E2D4C8091A5E6F3B70 /* OverlayPanel.swift in Sources */,
 				A6DF2778A52231805F4405E5 /* StorageSettingsView.swift in Sources */,
 				9B03885EBC5D55BBBAFBD958 /* TextInjector.swift in Sources */,
 				6F1445C00419EC250A6FDD5F /* UserDictionary.swift in Sources */,

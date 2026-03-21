@@ -60,11 +60,26 @@ final class StatusBarMenu {
         if let sessions = appDelegate?.sessionHistory.sessions, !sessions.isEmpty {
             for session in sessions.suffix(10).reversed() {
                 let preview = String(session.rawText.prefix(40))
-                let item = NSMenuItem(title: "\(session.timestamp) - \(preview)", action: #selector(copySessionSOAP(_:)), keyEquivalent: "")
+                let statusEmoji = session.status == .completed ? "✓" : "⏳"
+
+                // コピー用メニュー項目
+                let item = NSMenuItem(title: "\(statusEmoji) \(preview)", action: #selector(copySessionSOAP(_:)), keyEquivalent: "")
                 item.target = self
                 item.representedObject = session.soapText
-                let statusEmoji = session.status == .completed ? "✓" : "⏳"
-                item.title = "\(statusEmoji) \(preview)"
+
+                // サブメニュー: コピー＆フィードバック
+                let submenu = NSMenu()
+                let copyItem = NSMenuItem(title: "SOAPをコピー", action: #selector(copySessionSOAP(_:)), keyEquivalent: "")
+                copyItem.target = self
+                copyItem.representedObject = session.soapText
+                submenu.addItem(copyItem)
+
+                let feedbackItem = NSMenuItem(title: "不満点を記録...", action: #selector(openFeedbackForSession(_:)), keyEquivalent: "")
+                feedbackItem.target = self
+                feedbackItem.representedObject = session.rawText
+                submenu.addItem(feedbackItem)
+
+                item.submenu = submenu
                 menu.addItem(item)
             }
         } else {
@@ -94,6 +109,11 @@ final class StatusBarMenu {
         guard let soapText = sender.representedObject as? String else { return }
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(soapText, forType: .string)
+    }
+
+    @objc private func openFeedbackForSession(_ sender: NSMenuItem) {
+        // 設定画面の進化タブを開く
+        appDelegate?.openSettings()
     }
 
     @objc private func openSettings() {

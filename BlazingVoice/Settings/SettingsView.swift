@@ -19,7 +19,11 @@ struct SettingsView: View {
                 .tabItem {
                     Label("セキュリティ", systemImage: "lock.shield")
                 }
+            EvolutionSettingsView()
+                .tabItem {
+                    Label("進化", systemImage: "sparkles")
+                }
         }
-        .frame(width: 520, height: 460)
+        .frame(width: 560, height: 520)
     }
 }

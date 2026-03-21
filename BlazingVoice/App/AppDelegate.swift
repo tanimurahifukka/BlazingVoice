@@ -11,6 +11,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private(set) var userDictionary: UserDictionary!
     private(set) var llmClient: LLMClient!
     private(set) var sessionHistory: SessionHistory!
+    private(set) var evolutionLog: EvolutionLog!
 
     private var cancellables = Set<AnyCancellable>()
     private let overlay = OverlayPanel()
@@ -24,6 +25,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         userDictionary = UserDictionary()
         llmClient = settings.createLLMClient()
         sessionHistory = SessionHistory()
+        evolutionLog = EvolutionLog()
         speechRecognizer = SpeechRecognizer()
 
         statusBarController = StatusBarController(appDelegate: self)
@@ -108,6 +110,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         let correctedText = userDictionary.applyReplacements(to: rawText)
         print("[BlazingVoice] sending \(correctedText.count) chars to \(settings.llmBackend.displayName)")
 
+        let promptUsed = settings.effectivePrompt
+
         Task {
             do {
                 let soapText = try await llmClient.generateSOAP(from: correctedText)
@@ -116,6 +120,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                     SpeechRecognizer.saveMetadata(for: url, rawText: rawText, soapText: soapText)
                 }
                 await MainActor.run {
+                    // パイプラインログ保存（前後両方）
+                    evolutionLog.logPipeline(
+                        rawText: rawText,
+                        correctedText: correctedText,
+                        soapText: soapText,
+                        promptUsed: promptUsed
+                    )
                     copyToClipboard(soapText, rawText: rawText)
                 }
             } catch {
