@@ -16,12 +16,8 @@ struct EvolutionSettingsView: View {
                 logListView
             }
 
-            Section("フィードバック入力") {
-                feedbackInputView
-            }
-
-            Section("進化実行") {
-                evolutionActionView
+            Section("不満点を投稿して進化") {
+                feedbackAndEvolveView
             }
 
             Section("進化履歴") {
@@ -42,7 +38,7 @@ struct EvolutionSettingsView: View {
                 .font(.caption)
                 .foregroundColor(.secondary)
         } else {
-            Text("\(entries.count)件のログ（フィードバック付き: \(appDelegate.evolutionLog.entriesWithFeedback.count)件）")
+            Text("\(entries.count)件のログ")
                 .font(.caption)
                 .foregroundColor(.secondary)
 
@@ -85,101 +81,91 @@ struct EvolutionSettingsView: View {
         .onTapGesture {
             selectedEntry = entry
             feedbackText = entry.feedback ?? ""
+            evolutionMessage = nil
         }
     }
 
-    // MARK: - Feedback Input
+    // MARK: - Feedback + Evolve (統合ビュー)
 
     @ViewBuilder
-    private var feedbackInputView: some View {
+    private var feedbackAndEvolveView: some View {
         if let entry = selectedEntry {
-            VStack(alignment: .leading, spacing: 8) {
-                Group {
-                    Text("音声認識(生):").font(.caption).foregroundColor(.secondary)
-                    Text(entry.rawText).font(.caption).lineLimit(2)
+            // --- 選択中のログ内容 ---
+            VStack(alignment: .leading, spacing: 6) {
+                logDetailRow("音声認識(生)", entry.rawText, lines: 2)
+                logDetailRow("辞書適用後", entry.correctedText, lines: 2)
+                logDetailRow("SOAP出力", String(entry.soapText.prefix(300)), lines: 4)
+            }
 
-                    Text("辞書適用後:").font(.caption).foregroundColor(.secondary)
-                    Text(entry.correctedText).font(.caption).lineLimit(2)
+            Divider()
 
-                    Text("SOAP出力:").font(.caption).foregroundColor(.secondary)
-                    Text(String(entry.soapText.prefix(200))).font(.caption).lineLimit(4)
-                }
+            // --- 不満点入力 ---
+            Text("不満点:")
+                .font(.caption)
+                .foregroundColor(.secondary)
 
-                Divider()
+            TextEditor(text: $feedbackText)
+                .font(.system(.body, design: .monospaced))
+                .frame(height: 60)
+                .border(Color.secondary.opacity(0.3))
 
-                Text("不満点を入力してください:")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                TextEditor(text: $feedbackText)
-                    .font(.system(.body, design: .monospaced))
-                    .frame(height: 60)
-                    .border(Color.secondary.opacity(0.3))
-
-                HStack {
-                    Button("フィードバック保存") {
-                        appDelegate.evolutionLog.addFeedback(entryId: entry.id, feedback: feedbackText)
-                        // refresh selection
-                        if let updated = appDelegate.evolutionLog.entries.first(where: { $0.id == entry.id }) {
-                            selectedEntry = updated
+            // --- 投稿 & 進化ボタン ---
+            HStack(spacing: 12) {
+                Button(action: submitAndEvolve) {
+                    if isEvolving {
+                        HStack(spacing: 6) {
+                            ProgressView()
+                                .controlSize(.small)
+                            Text("LLM処理中...")
+                                .font(.caption)
                         }
-                    }
-                    .disabled(feedbackText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-
-                    Spacer()
-
-                    if entry.feedback != nil {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.green)
-                        Text("保存済み")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                    } else {
+                        Label("投稿して進化実行", systemImage: "sparkles")
                     }
                 }
+                .disabled(isEvolving || feedbackText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
+
+                Button("選択解除") {
+                    selectedEntry = nil
+                    feedbackText = ""
+                    evolutionMessage = nil
+                }
+                .disabled(isEvolving)
+            }
+
+            // --- 結果表示 ---
+            if let msg = evolutionMessage {
+                HStack(alignment: .top, spacing: 6) {
+                    Image(systemName: evolutionMessageIsError ? "xmark.circle.fill" : "checkmark.circle.fill")
+                        .foregroundColor(evolutionMessageIsError ? .red : .green)
+                    Text(msg)
+                        .font(.caption)
+                        .foregroundColor(evolutionMessageIsError ? .red : .primary)
+                }
+                .padding(.vertical, 4)
             }
         } else {
-            Text("上のログからエントリを選択してフィードバックを入力してください。")
+            Text("上のログからエントリを選択し、不満点を入力して投稿してください。\nLLMが辞書とプロンプトを自動改善します。")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
     }
 
-    // MARK: - Evolution Action
-
-    @ViewBuilder
-    private var evolutionActionView: some View {
-        let lastDate = appDelegate.evolutionLog.evolutionHistory.last?.date
-        let unresolvedCount = appDelegate.evolutionLog.unresolvedFeedback(since: lastDate).count
-
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("未処理フィードバック: \(unresolvedCount)件")
-                    .font(.caption)
-                if let last = lastDate {
-                    Text("前回の進化: \(formatDate(last))")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
-                }
-            }
-
-            Spacer()
-
-            Button(action: runEvolution) {
-                if isEvolving {
-                    ProgressView()
-                        .controlSize(.small)
-                } else {
-                    Label("進化実行", systemImage: "sparkles")
-                }
-            }
-            .disabled(isEvolving || unresolvedCount == 0)
-        }
-
-        if let msg = evolutionMessage {
-            Text(msg)
+    private func logDetailRow(_ label: String, _ text: String, lines: Int) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(label)
+                .font(.caption2)
+                .foregroundColor(.secondary)
+            Text(text)
                 .font(.caption)
-                .foregroundColor(evolutionMessageIsError ? .red : .green)
-                .lineLimit(5)
+                .lineLimit(lines)
+                .padding(4)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.secondary.opacity(0.06))
+                .cornerRadius(4)
         }
     }
 
@@ -216,15 +202,25 @@ struct EvolutionSettingsView: View {
         }
     }
 
-    // MARK: - Evolution Logic
+    // MARK: - Submit & Evolve (ワンアクション)
 
-    private func runEvolution() {
+    private func submitAndEvolve() {
+        guard let entry = selectedEntry else { return }
+        let trimmed = feedbackText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+
+        // 1. フィードバック保存
+        appDelegate.evolutionLog.addFeedback(entryId: entry.id, feedback: trimmed)
+        if let updated = appDelegate.evolutionLog.entries.first(where: { $0.id == entry.id }) {
+            selectedEntry = updated
+        }
+
+        // 2. 即座にLLM進化実行
         isEvolving = true
         evolutionMessage = nil
 
         let evolver = PromptEvolver(settings: settings)
-        let lastDate = appDelegate.evolutionLog.evolutionHistory.last?.date
-        let feedbackEntries = appDelegate.evolutionLog.unresolvedFeedback(since: lastDate)
+        let feedbackEntries = [appDelegate.evolutionLog.entries.first(where: { $0.id == entry.id })].compactMap { $0 }
         let currentPrompt = settings.effectivePrompt
         let currentDict = appDelegate.userDictionary.entries
             .filter { $0.isEnabled }
@@ -240,17 +236,20 @@ struct EvolutionSettingsView: View {
 
                 await MainActor.run {
                     // 辞書に追加
+                    var addedCount = 0
                     for addition in result.dictionaryAdditions {
                         let alreadyExists = appDelegate.userDictionary.entries.contains {
                             $0.from == addition.from && $0.to == addition.to
                         }
                         if !alreadyExists {
                             appDelegate.userDictionary.addEntry(from: addition.from, to: addition.to)
+                            addedCount += 1
                         }
                     }
 
                     // プロンプト更新
-                    if result.newPrompt != currentPrompt && !result.newPrompt.isEmpty {
+                    let promptUpdated = result.newPrompt != currentPrompt && !result.newPrompt.isEmpty
+                    if promptUpdated {
                         settings.customPrompt = result.newPrompt
                     }
 
@@ -258,7 +257,7 @@ struct EvolutionSettingsView: View {
                     let record = EvolutionLog.EvolutionRecord(
                         id: UUID(),
                         date: Date(),
-                        feedbackUsed: feedbackEntries.compactMap { $0.feedback },
+                        feedbackUsed: [trimmed],
                         dictionaryAdded: result.dictionaryAdditions.map { ["from": $0.from, "to": $0.to] },
                         promptBefore: currentPrompt,
                         promptAfter: result.newPrompt,
@@ -266,7 +265,12 @@ struct EvolutionSettingsView: View {
                     )
                     appDelegate.evolutionLog.addEvolutionRecord(record)
 
-                    evolutionMessage = "進化完了: \(result.summary)"
+                    // 結果メッセージ
+                    var parts: [String] = []
+                    if addedCount > 0 { parts.append("辞書+\(addedCount)件") }
+                    if promptUpdated { parts.append("プロンプト更新") }
+                    let changes = parts.isEmpty ? "変更なし" : parts.joined(separator: " / ")
+                    evolutionMessage = "進化完了 (\(changes)): \(result.summary)"
                     evolutionMessageIsError = false
                     isEvolving = false
                 }
